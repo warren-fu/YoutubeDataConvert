@@ -1,0 +1,3 @@
+1. nav to folder
+2. youtube-dl {url}
+3. ffmpeg -i {video name} -r {fps} output_%04d.png
