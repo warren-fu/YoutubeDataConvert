@@ -71,7 +71,9 @@ def convert(fp,ft):
     arr = []
     content = ""
     for i in range(1,2):
-        f = open(f'{fp}{i}.{ft}', 'rb')
+        # f = open(f'{fp}{i}.{ft}', 'rb')
+        f = open(fp, 'rb')
+
         # content = f.read()
         for a in f:
             for b in a:
