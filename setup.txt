@@ -1,0 +1,3 @@
+1. run some python script to install youtube-dl and ffmpeg. 
+2. run pip install -r requirements.txt
+3. idk
