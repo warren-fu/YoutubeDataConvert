@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/warren_fu/YoutubeDataConvert">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
 <h3 align="center">Youtube Data Convert</h3>
@@ -55,24 +55,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `warren_fu`, `YoutubeDataConvert`, `twitter_handle`, `warren-fu`, `gmail`, `warrenhfu`, `Youtube Data Convert`, `project_description`
-
+This is a project that aims to convert any file into a video, upload the video to YouTube, then convert the YouTube video back into the original file. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
+* [![Python][Python]][Python-url]
+<!-- * [![React][React.js]][React-url] -->
+<!-- * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![JQuery][JQuery.com]][JQuery-url] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,11 +83,17 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+<!-- This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
-  ```
+  ``` -->
+FFmpeg
+youtube-dl
+Pillow
+numpy
+matplotlib
+opencv
 
 ### Installation
 
@@ -99,20 +102,21 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/warren_fu/YoutubeDataConvert.git
    ```
-3. Install NPM packages
-   ```sh
+3. Install FFmpeg and youtube-dl
+   <!-- ```sh
    npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+   ``` -->
+4. Install Python Libraries
+   pip install Pillow
+   pip install numpy
+   pip install matplotlib
+   pip install opencv
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
@@ -124,7 +128,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- ROADMAP -->
-## Roadmap
+<!-- ## Roadmap
 
 - [ ] Feature 1
 - [ ] Feature 2
@@ -138,7 +142,7 @@ See the [open issues](https://github.com/warren_fu/YoutubeDataConvert/issues) fo
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+<!-- ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -151,7 +155,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> --> --> -->
 
 
 
@@ -167,7 +171,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - warrenhfu@gmail.com
+Warren Fu - warrenhfu@gmail.com
 
 Project Link: [https://github.com/warren_fu/YoutubeDataConvert](https://github.com/warren_fu/YoutubeDataConvert)
 
@@ -176,11 +180,11 @@ Project Link: [https://github.com/warren_fu/YoutubeDataConvert](https://github.c
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * []()
 * []()
-* []()
+* []() -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,7 +192,7 @@ Project Link: [https://github.com/warren_fu/YoutubeDataConvert](https://github.c
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/warren_fu/YoutubeDataConvert.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/warren_fu/YoutubeDataConvert.svg?style=for-the-badge
 [contributors-url]: https://github.com/warren_fu/YoutubeDataConvert/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/warren_fu/YoutubeDataConvert.svg?style=for-the-badge
 [forks-url]: https://github.com/warren_fu/YoutubeDataConvert/network/members
@@ -216,4 +220,4 @@ Project Link: [https://github.com/warren_fu/YoutubeDataConvert](https://github.c
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com  -->
