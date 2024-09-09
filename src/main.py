@@ -5,44 +5,30 @@ import os, shutil
 import cv2
 import skvideo.io
 
-
-
-
-width = 1920
-height = width//16 * 9
-
-# %matplotlib inline
+WIDTH = 1920
+HEIGHT = WIDTH//16 * 9
 
 def image_process(fp):
-    image = Image.open(f"./data/{fp}.png")
-    col,row =  image.size
-    print(row,col)
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, f"../images/{fp}.png")
+    image = Image.open(file_path)
+    
+    col, row = image.size
+    print(row, col)
     data = []
     pixels = image.load()
+    
     for i in range(row):
-        # temp = []
         for j in range(col):
-            r,g,b =  pixels[j,i]
-            data+=[r,g,b]
-        # data.append(temp)
+            r, g, b = pixels[j, i]
+            data.extend([r, g, b])
+    
     return data
-
 def vid_process(fp,n):
     data = []
     for i in range(n):
         data += image_process(f'{fp}{n}')
     return data
-
-# print(image_process(1))
-    # 
-# print(data[:10])
-# image.show()
-# plt.imshow(image)
-# with open("output.txt", "w") as txt_file:
-#     for line in data:
-#         txt_file.write(f" {line}") # works with any number of elements in a line
-
-# array = np.array(data, dtype=np.uint8)
 
 # Use PIL to create an image from the new array of pixels
 def save_img(arr,n):
@@ -52,30 +38,21 @@ def save_img(arr,n):
 
 # print('works')
 def format_full(arr):
-    res = np.zeros([height,width,3], dtype=np.uint8)
+    res = np.zeros([HEIGHT,WIDTH,3], dtype=np.uint8)
     
-    for i in range(height):
-        w2 = i*width*3
-        for j in range(width):
+    for i in range(HEIGHT):
+        w2 = i*WIDTH*3
+        for j in range(WIDTH):
             k = j*3
             # print(i, j*3)
             res[i,j] = [arr[w2 + k], arr[w2 + k + 1], arr[w2 + k + 2]]
-    # for i in range(n):
-    #     for j in range(width):
-    #         res[i,j] = [arr[i*5760+j*3], arr[i*5760+j*3+1], arr[i*5760+j*3+2]]
-    # for j in range(m//3):
-    #     res[n,j] = [arr[n*5760+j*3], arr[n*5760+j*3+1], arr[n*5760+j*3+2]]
-    # for j in range(m%3):
-        
-    # todo
     return res
 
 
 def format_(arr):
-    res = np.zeros([height,width,3], dtype=np.uint8)
-    array = np.zeros([height,width*3], dtype=np.uint8)
-    # print(len(res))
-    w2 = width*3
+    res = np.zeros([HEIGHT,WIDTH,3], dtype=np.uint8)
+    array = np.zeros([HEIGHT,WIDTH*3], dtype=np.uint8)
+    w2 = WIDTH*3
     n = len(arr)//w2
     m = len(arr)%w2
     
@@ -85,35 +62,28 @@ def format_(arr):
     for j in range(m):
         array[n,j] = arr[n*w2+j]
         
-    for i in range(height):
-        for j in range(width):
+    for i in range(HEIGHT):
+        for j in range(WIDTH):
             # print(i, j*3)
             res[i,j] = [array[i,j*3], array[i,j*3+1], array[i,j*3+2]]
-    # for i in range(n):
-    #     for j in range(width):
-    #         res[i,j] = [arr[i*5760+j*3], arr[i*5760+j*3+1], arr[i*5760+j*3+2]]
-    # for j in range(m//3):
-    #     res[n,j] = [arr[n*5760+j*3], arr[n*5760+j*3+1], arr[n*5760+j*3+2]]
-    # for j in range(m%3):
-        
-    # todo
+            
     return res
 
-
-
-
-
-
-def convert(fp,ft):    
+def convert(fp, ft):
     arr = []
-    f = open(f'../tests/{fp}.{ft}', 'rb')
-    for a in f:
-        for b in a:
-            arr.append(b)
+    # Adjust the path to be relative to the script's location
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path, f'../tests/{fp}.{ft}')
+    with open(file_path, 'rb') as f:
+        for a in f:
+            for b in a:
+                arr.append(b)
     return arr
 
 def _write(arr, ft):
-    f = open(f'./output/output.{ft}', 'wb') 
+    base_path = os.path.dirname(__file__)
+    file_path = os.path.join(base_path,f'../output/output.{ft}')
+    f = open(file_path, 'wb') 
     # for a in arr:
     #     f.write(chr(a))
     i = 0
@@ -155,10 +125,10 @@ def to_vid():
         if f.endswith('png'):
             images.append(f)
     # fourcc = cv2.VideoWriter_fourcc(*'mp4v') # Be sure to use lower case
-    # out = cv2.VideoWriter(outputfile, fourcc, 5, (width, height))
+    # out = cv2.VideoWriter(outputfile, fourcc, 5, (WIDTH, HEIGHT))
     # fourcc = cv2.cv.CV_FOURCC(*'XVID')
     # fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    # out = cv2.VideoWriter('../tests/output.avi',fourcc, 20.0, (width,height))
+    # out = cv2.VideoWriter('../tests/output.avi',fourcc, 20.0, (WIDTH,HEIGHT))
     
     # frame = cv2.imread(f'./blank.png')
     # out.write(frame) # Write out frame to video
@@ -218,15 +188,15 @@ def break_vid(vid_name):
     
 def main():
     while(1):
-        a = input('Enter A (data to video) or B (video to data)')
+        a = input('Enter A (data to video) or B (video to data): ')
         if a == "A":
             clear()
-            fp = input('Enter the File Name')
-            ft = input('Enter the File Type')
+            fp = str(input('Enter the File Name: '))
+            ft = str(input('Enter the File Type: '))
             data = convert(fp,ft)
             n = len(data)
             
-            t = width*height*3
+            t = WIDTH*HEIGHT*3
             full = n//(t)
             empty = n%(t)
             
@@ -234,11 +204,11 @@ def main():
             save_img(format_(data[full*t:]),full)
             print(f'length is {full+1}')
             
-            to_vid()
+            # to_vid()
             
         elif(a == "B"):
-            # n = (int)(input('Enter the number of photos'))
-            n = break_vid(input('Enter the video name: '))
+            n = (int)(input('Enter the number of photos'))
+            # n = break_vid(input('Enter the video name: '))
             print(n)
             output = input('Enter the Output File Type')
             data = []
